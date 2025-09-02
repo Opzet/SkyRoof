@@ -34,8 +34,12 @@ namespace SkyRoof
 
     private void LoadSettings()
     {
+         
+
       textBox1.Text = ctx.Settings.User.Call;
       textBox2.Text = ctx.Settings.User.Square;
+
+
       numericUpDown1.Value = ctx.Settings.User.Altitude;
     }
 

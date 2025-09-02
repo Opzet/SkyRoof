@@ -98,7 +98,19 @@ namespace SkyRoof
 
     private void EnsureUserDetails()
     {
-      if (UserDetailsDialog.UserDetailsAvailable(ctx)) return;
+
+
+        if (UserDetailsDialog.UserDetailsAvailable (ctx))
+        {
+                // Create default entry if not exists
+                UserSettings User = new UserSettings ();
+                User.Call = "VK6ABC";    // Call sign for WA
+                User.Square = "OF78wb";    // Perth grid square
+                User.Altitude = 50;       // Altitude in meters
+                ctx.Settings.User = User;
+        }
+
+            
 
       var dialog = new UserDetailsDialog(ctx);
       var rc = dialog.ShowDialog();
